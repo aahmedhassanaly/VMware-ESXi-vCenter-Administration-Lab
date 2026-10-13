@@ -7,7 +7,8 @@ A hands-on home lab for learning VMware ESXi host administration and vCenter man
 - Physical host: Windows
 - Virtualization platform: VMware Workstation
 - Nested hypervisor: VMware ESXi
-- Network: NAT for initial host management
+- ESXi01 network mode in VMware Workstation: Bridged
+- ESXi01 management IP: 192.168.1.41
 - Scope: ESXi administration, storage, virtual machines, host networking, vCenter, and selected vSphere features
 - Veeam: excluded from this project
 
@@ -16,7 +17,7 @@ A hands-on home lab for learning VMware ESXi host administration and vCenter man
 | Task | Description | Status | Documentation |
 |---|---|---|---|
 | 01 | Install ESXi01, Configure Management Access, and Create a Datastore | Completed | [Task 01](Documentation/01-esxi01-installation.md) |
-| 02 | Configure Standard vSwitches and Port Groups | Planned | Added after completion |
+| 02 | Configure Standard vSwitches and Port Groups | Completed | [Task 02](Documentation/02-standard-vswitches-port-groups.md) |
 | 03 | Create and Manage Virtual Machines | Planned | Added after completion |
 | 04 | Manage Snapshots, Clones and Templates | Planned | Added after completion |
 | 05 | Manage ESXi Users, Roles and Security | Planned | Added after completion |
@@ -44,4 +45,4 @@ Advanced features depend on ESXi/vCenter versions, licensing, hardware resources
 
 ## Current Result
 
-ESXi01 starts successfully, has a management IP address, its web interface is accessible, and a datastore has been created.
+ESXi01 starts successfully, management access works at 192.168.1.41, and a datastore is available. The standard switch vSwitch0 contains the Management Network and the newly created VM Network port groups.
