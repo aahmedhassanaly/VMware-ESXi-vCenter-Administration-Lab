@@ -2,15 +2,16 @@
 
 ## Objective
 
-Install ESXi as a nested hypervisor in VMware Workstation, confirm management access, and prepare local VMFS storage for later lab tasks.
+Install ESXi as a nested hypervisor in VMware Workstation, confirm management access, and prepare local storage for later lab tasks.
 
 ## Environment
 
 - Physical host OS: Windows
 - Virtualization platform: VMware Workstation
 - Nested host: ESXi01
-- VM resources: 4 vCPU, 8 GB RAM, and a 100 GB virtual disk (configured for the lab)
+- VM resources: 4 vCPU, 8 GB RAM, and a 100 GB virtual disk
 - Network mode: NAT
+- ESXi management IP: 192.168.1.41
 - ESXi version: not recorded during this task
 
 ## Implementation
@@ -24,8 +25,8 @@ Install ESXi as a nested hypervisor in VMware Workstation, confirm management ac
 
 ### 2. Verify Management Access
 
-1. Confirmed that ESXi received a management IP address.
-2. Opened the ESXi Host Client in a web browser using the management IP address.
+1. Confirmed that ESXi received the management IP address **192.168.1.41**.
+2. Opened the ESXi Host Client at **https://192.168.1.41/ui**.
 3. Confirmed that the web interface opened successfully.
 
 ### 3. Create a Datastore
@@ -33,11 +34,12 @@ Install ESXi as a nested hypervisor in VMware Workstation, confirm management ac
 1. Opened **Storage → Datastores** in the ESXi Host Client.
 2. Found that a usable datastore was not initially available.
 3. Used the **New datastore** option to create a datastore on the virtual disk assigned to ESXi01.
+4. The datastore is referred to in this lab as **data store**.
 
 ## Verification
 
 - [x] ESXi01 starts successfully.
-- [x] A management IP address is assigned.
+- [x] Management IP address **192.168.1.41** is assigned.
 - [x] The ESXi Host Client opens in a browser.
 - [x] A datastore was created through the ESXi interface.
 
@@ -60,4 +62,4 @@ Install ESXi as a nested hypervisor in VMware Workstation, confirm management ac
 
 ## Task Status
 
-**Completed** — ESXi01 was installed, management access was verified, and a datastore was created.
+**Completed** — ESXi01 was installed, management access at **192.168.1.41** was verified, and a datastore was created.
