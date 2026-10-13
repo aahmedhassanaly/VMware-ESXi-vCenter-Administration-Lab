@@ -1,6 +1,6 @@
 # VMware ESXi and vCenter Administration Lab
 
-A hands-on home lab for learning VMware ESXi host administration and vCenter management. The lab is built in small tasks and each task is documented only after it has been completed and verified.
+A hands-on home lab for learning VMware ESXi host administration and vCenter management. Each task is documented only after it has been completed and verified.
 
 ## Lab Environment
 
@@ -16,23 +16,22 @@ A hands-on home lab for learning VMware ESXi host administration and vCenter man
 | Task | Description | Status | Documentation |
 |---|---|---|---|
 | 01 | Install and Configure ESXi01 | Completed | [Task 01](Documentation/01-esxi01-installation.md) |
-| 02 | Configure ESXi Management Network and Host Access | Planned | Added after completion |
-| 03 | Configure Datastores and VMFS Storage | Planned | Added after completion |
-| 04 | Configure Standard vSwitches and Port Groups | Planned | Added after completion |
-| 05 | Create and Manage Virtual Machines | Planned | Added after completion |
-| 06 | Manage Snapshots, Clones and Templates | Planned | Added after completion |
-| 07 | Manage ESXi Users, Roles and Security | Planned | Added after completion |
-| 08 | Deploy and Configure ESXi02 | Planned | Added after completion |
-| 09 | Configure Networking Between ESXi Hosts | Planned | Added after completion |
-| 10 | Configure Shared Storage for Both Hosts | Planned | Added after completion |
-| 11 | Deploy vCenter Server Appliance | Planned | Added after completion |
-| 12 | Add Hosts to vCenter and Organize Inventory | Planned | Added after completion |
-| 13 | Configure vCenter Permissions and Roles | Planned | Added after completion |
-| 14 | Configure Distributed Switching | Planned | Added after completion |
-| 15 | Configure and Test vMotion | Planned | Added after completion |
-| 16 | Configure vSphere HA | Planned | Added after completion |
-| 17 | Configure vSphere DRS | Planned | Added after completion |
-| 18 | Host Maintenance and Lifecycle Management | Planned | Added after completion |
+| 02 | Verify Management Access and Configure Datastores/VMFS Storage | Planned | Added after completion |
+| 03 | Configure Standard vSwitches and Port Groups | Planned | Added after completion |
+| 04 | Create and Manage Virtual Machines | Planned | Added after completion |
+| 05 | Manage Snapshots, Clones and Templates | Planned | Added after completion |
+| 06 | Manage ESXi Users, Roles and Security | Planned | Added after completion |
+| 07 | Deploy and Configure ESXi02 | Planned | Added after completion |
+| 08 | Configure Networking Between ESXi Hosts | Planned | Added after completion |
+| 09 | Configure Shared Storage for Both Hosts | Planned | Added after completion |
+| 10 | Deploy vCenter Server Appliance | Planned | Added after completion |
+| 11 | Add Hosts to vCenter and Organize Inventory | Planned | Added after completion |
+| 12 | Configure vCenter Permissions and Roles | Planned | Added after completion |
+| 13 | Configure Distributed Switching | Planned | Added after completion |
+| 14 | Configure and Test vMotion | Planned | Added after completion |
+| 15 | Configure vSphere HA | Planned | Added after completion |
+| 16 | Configure vSphere DRS | Planned | Added after completion |
+| 17 | Host Maintenance and Lifecycle Management | Planned | Added after completion |
 
 ## Working Method
 
