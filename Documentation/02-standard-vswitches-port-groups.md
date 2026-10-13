@@ -49,6 +49,7 @@ Opened **Networking → Port groups** and created a port group named \`VM Networ
 - VLAN ID: \`0\`
 
 The port group is available for connecting virtual machine network adapters in later tasks.
+<img width="1536" height="694" alt="image" src="https://github.com/user-attachments/assets/3f57bf25-179b-4bdf-95b7-3aee147985d5" />
 
 ## Verification
 
