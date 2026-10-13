@@ -1,4 +1,4 @@
-# Task 01 — Install ESXi01, Configure Management Access, and Create a Datastore
+# Task 01 — Install ESXi01and Create a Datastore
 
 ## Objective
 
@@ -22,12 +22,13 @@ Install ESXi as a nested hypervisor in VMware Workstation, confirm management ac
 2. Attached the ESXi installation ISO and started the installer.
 3. Installed ESXi on the virtual disk assigned to ESXi01.
 4. Restarted the VM and reached the ESXi console.
-
+ 
 ### 2. Verify Management Access
 
 1. Confirmed that ESXi received the management IP address **192.168.1.41**.
 2. Opened the ESXi Host Client at **https://192.168.1.41/ui**.
 3. Confirmed that the web interface opened successfully.
+<img width="995" height="500" alt="image" src="https://github.com/user-attachments/assets/dd622097-052e-42eb-b3d5-7f29b1454c73" />
 
 ### 3. Create a Datastore
 
@@ -35,6 +36,7 @@ Install ESXi as a nested hypervisor in VMware Workstation, confirm management ac
 2. Found that a usable datastore was not initially available.
 3. Used the **New datastore** option to create a datastore on the virtual disk assigned to ESXi01.
 4. The datastore is referred to in this lab as **data store**.
+<img width="1166" height="686" alt="image" src="https://github.com/user-attachments/assets/7c632f2e-b3f6-4baa-94f0-186f1f6ce1f9" />
 
 ## Verification
 
