@@ -85,7 +85,8 @@ The disk was initially displayed as **Thick provisioned, lazily zeroed**. Thin p
 
 The virtual disk capacity was increased from 8 GB to 15 GB. Increasing the virtual disk capacity does not automatically confirm that the guest partition and filesystem have expanded.
 
----
+---<img width="1516" height="687" alt="image" src="https://github.com/user-attachments/assets/806bbd14-03d4-42db-9501-0ffd33adf70e" />
+
 
 ## 4. Configure the VM Network
 
