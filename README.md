@@ -18,7 +18,7 @@ A hands-on home lab for learning VMware ESXi host administration and vCenter man
 |---|---|---|---|
 | 01 | Install ESXi01, Configure Management Access, and Create a Datastore | Completed | [Task 01](Documentation/01-esxi01-installation.md) |
 | 02 | Configure Standard vSwitches and Port Groups | Completed | [Task 02](Documentation/02-standard-vswitches-port-groups.md) |
-| 03 | Create and Manage Virtual Machines | Planned | Added after completion |
+| 03 | Create and Manage Virtual Machines | Completed | [Task 03](Documentation/03-create-manage-vms.md) |
 | 04 | Manage Snapshots, Clones and Templates | Planned | Added after completion |
 | 05 | Manage ESXi Users, Roles and Security | Planned | Added after completion |
 | 06 | Deploy and Configure ESXi02 | Planned | Added after completion |
@@ -45,4 +45,4 @@ Advanced features depend on ESXi/vCenter versions, licensing, hardware resources
 
 ## Current Result
 
-ESXi01 starts successfully, management access works at 192.168.1.41, and a datastore is available. The standard switch vSwitch0 contains the Management Network and the newly created VM Network port groups.
+ESXi01 starts successfully, management access works at 192.168.1.41, and a datastore is available. The standard switch vSwitch0 contains the Management Network and the VM Network port groups. A Debian 13 virtual machine has been installed and verified with basic browser and network access.
