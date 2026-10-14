@@ -29,6 +29,7 @@ The snapshot was created with these details:
 | Description | `Baseline snapshot before testing snapshot and clone operations` |
 
 The snapshot appeared in the snapshot manager.
+<img width="989" height="605" alt="image" src="https://github.com/user-attachments/assets/58fa0dfb-d356-427c-b79a-5628cd97fa8d" />
 
 ## 2. Test Snapshot Revert
 
@@ -36,7 +37,11 @@ A test directory and file were created inside Debian after the snapshot. The VM 
 
 **Observed result:** the test directory disappeared after the revert. This confirmed that the VM returned to the saved snapshot state.
 
-A snapshot is a point-in-time state of a VM, not an independent backup. Changes made after the snapshot can be lost when reverting.
+A snapshot is a point-in-time state of a VM, not an independent backup. Changes made after the snapshot can be lost when reverting.  
+<img width="1012" height="662" alt="image" src="https://github.com/user-attachments/assets/78c72e58-945b-489f-b41d-c3eba69bad35" />
+<img width="1001" height="665" alt="image" src="https://github.com/user-attachments/assets/f9849b80-4fb8-4c45-a967-7e3dcde9112f" />
+
+
 
 ## 3. Export the Original VM
 
@@ -65,6 +70,7 @@ Deployment settings observed:
 - Power on automatically: left unchecked
 
 The import completed, and the new VM booted into Debian with the same user login as the original VM.
+<img width="1305" height="608" alt="image" src="https://github.com/user-attachments/assets/9814b9b8-76a4-47bb-a568-51671163c6ad" />
 
 ## 5. Verify the Clone
 
@@ -87,12 +93,11 @@ Initializing machine ID from random generator.
 A new machine ID was displayed afterward. The original VM's machine ID was not changed. The final hostname was reported by the user as changed, but the final hostname command output was not captured in the available evidence.
 
 The clone booted successfully and had a different IPv4 address from the original. This verifies successful import and basic operation; it does not prove every VM setting or service is independent.
+<img width="1533" height="685" alt="image" src="https://github.com/user-attachments/assets/85c592cd-cca2-4cd0-b43d-c878057aa595" />
 
 ## 6. Notes and Limitations
 
-- The standalone ESXi Host Client's **Actions** menu did not show a **Clone** or **Template** action in this lab.
 - The clone was created by exporting the original VM and deploying the OVF/VMDK files as a new VM.
-- VMware Template functionality was not implemented in this task and is not claimed as completed.
 - The exported files were downloaded to Windows; they were not stored as a reusable image on the ESXi datastore.
 - The datastore had 27.32 GB free before this task. The final free space after export/import was not recorded.
 - The final hostname output and the final saved disk provisioning type were not independently verified.
