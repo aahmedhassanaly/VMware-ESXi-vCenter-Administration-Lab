@@ -26,6 +26,7 @@ A hands-on lab for practicing VMware ESXi administration and vCenter management.
 - **Management Network** — port group used by the ESXi management VMkernel interface.
 - **VM Network** — port group created for virtual machine networking.
 - **debian-13.7.0** — Debian 13 guest VM used to practice VM creation and guest installation.
+- **debian-13.7.0-clone** — VM imported from the original VM's exported OVF/VMDK files and booted successfully.
 
 ## Tasks
 
@@ -34,7 +35,7 @@ A hands-on lab for practicing VMware ESXi administration and vCenter management.
 | 01 | [Install ESXi01, Configure Management Access, and Create a Datastore](Documentation/01-esxi01-installation.md) | ✅ Completed |
 | 02 | [Configure Standard vSwitches and Port Groups](Documentation/02-standard-vswitches-port-groups.md) | ✅ Completed |
 | 03 | [Create and Manage Virtual Machines](Documentation/03-create-manage-vms.md) | ✅ Completed |
-| 04 | Manage Snapshots, Clones and Templates | Planned |
+| 04 | [Manage Snapshots and Clones](Documentation/04-snapshots-and-clones.md) | ✅ Completed |
 | 05 | Manage ESXi Users, Roles and Security | Planned |
 | 06 | Deploy and Configure ESXi02 | Planned |
 | 07 | Configure Networking Between ESXi Hosts | Planned |
@@ -69,6 +70,7 @@ Task status is updated only after the practical work and its verification are co
 - Datastore creation
 - Virtual disk capacity and provisioning types
 - Distinguishing virtual disk size from guest partition and filesystem capacity
+- VM snapshots, revert testing, OVF/VMDK export, and clone deployment
 
 ### Operations
 - Verify actual results before documenting them
@@ -80,6 +82,8 @@ Task status is updated only after the practical work and its verification are co
 - ESXi01 is accessible at `192.168.1.41`.
 - `vSwitch0` contains the `Management Network` and `VM Network` port groups.
 - Debian 13 is installed on VM `debian-13.7.0`.
+- A snapshot named `Debian-Before-Changes` was created and tested; a test directory created after the snapshot disappeared after Revert.
+- `debian-13.7.0-clone` was deployed from exported OVF/VMDK files and booted successfully. The clone was assigned IPv4 address `192.168.1.43`, while the original showed `192.168.1.252`.
 - The VM has 1 vCPU, 2 GB configured memory, a 15 GB configured virtual disk, and a network adapter connected to `VM Network`.
 - The user confirmed the guest boots, opens a browser, and has Internet access.
 
