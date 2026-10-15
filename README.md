@@ -8,15 +8,15 @@ A hands-on lab for practicing VMware ESXi administration and vCenter management.
 
 | Component | Details |
 |---|---|
-| Physical host | Windows |
+| Physical host | Windows 11 Pro |
 | Virtualization platform | VMware Workstation |
 | Hypervisor | Nested VMware ESXi |
 | ESXi version observed during VM creation | ESXi 8.0 Update 2 |
 | ESXi01 management IP | `192.168.1.41` |
 | ESXi02 management IP | `192.168.1.68` |
-| ESXi02 version observed | ESXi 8.0 Update 3 |
-| VMware Workstation network mode for ESXi01 | Bridged |
-| Storage | Datastore created on ESXi01 |
+| vCenter hostname | `vcsa01.lab.local` |
+| vCenter IP | `192.168.1.200` |
+| DNS server | Technitium DNS on physical Windows 11 host (`192.168.1.144`) |
 | Scope | ESXi host administration, virtual machines, networking, storage, vCenter, and selected vSphere features |
 
 **Project boundary:** Veeam is managed in a separate repository and is excluded from this project.
@@ -25,6 +25,8 @@ A hands-on lab for practicing VMware ESXi administration and vCenter management.
 
 - **ESXi01** — first nested ESXi host used for the initial tasks.
 - **ESXi02** — second nested ESXi host; Host Client access, datastore presence, and basic virtual networking were verified.
+- **VCSA** — vCenter Server Appliance `8.0.3.00400`, hostname `vcsa01.lab.local`, IP `192.168.1.200`.
+- **Technitium DNS** — DNS server on the physical Windows 11 host, resolving the VCSA forward and reverse records.
 - **vSwitch0** — standard virtual switch on ESXi01.
 - **Management Network** — port group used by the ESXi management VMkernel interface.
 - **VM Network** — port group created for virtual machine networking.
@@ -41,7 +43,7 @@ A hands-on lab for practicing VMware ESXi administration and vCenter management.
 | 04 | [Manage Snapshots and Clones](Documentation/04-snapshots-and-clones.md) | ✅ Completed |
 | 05 | [Manage ESXi Users and Roles](Documentation/05-esxi-users-and-roles.md) | ✅ Completed |
 | 06 | [Deploy and Configure ESXi02](Documentation/06-esxi02-deployment.md) | ✅ Completed |
-| 07 | Deploy vCenter Server Appliance | Planned |
+| 07 | [Deploy vCenter Server Appliance](Documentation/07-vcenter-server-appliance.md) | ✅ Deployed; DNS verified; memory alert open |
 | 08 | Add Hosts to vCenter and Organize Inventory | Planned |
 | 09 | Configure vCenter Permissions and Roles | Planned |
 | 10 | Configure Distributed Switching | Planned |
@@ -50,7 +52,7 @@ A hands-on lab for practicing VMware ESXi administration and vCenter management.
 | 13 | Configure vSphere DRS | Planned |
 | 14 | Host Maintenance and Lifecycle Management | Planned |
 
-Task status is updated only after the practical work and its verification are completed. Planned tasks are not presented as implemented features.
+Task status is updated only after practical work and verification. Planned tasks are not presented as implemented features.
 
 ## Core Skills Practiced
 
@@ -60,12 +62,15 @@ Task status is updated only after the practical work and its verification are co
 - Guest OS installation
 - ISO and datastore use
 - VM network adapter and port group selection
+- vCenter Server Appliance deployment and management
 
-### Networking
+### Networking and DNS
 - Standard vSwitches and port groups
 - ESXi management VMkernel networking
 - Basic guest network verification
-- Understanding the difference between a virtual switch, port group, VM virtual NIC, and ESXi uplink
+- DNS A and PTR records for VCSA
+- Forward and reverse DNS lookup verification
+- Distinguishing UDP DNS tests from TCP port verification
 
 ### Storage
 - Datastore creation
@@ -77,16 +82,17 @@ Task status is updated only after the practical work and its verification are co
 - Verify actual results before documenting them
 - Record open follow-up items explicitly
 - Keep task documentation aligned with the README
+- Track resource alerts rather than hiding them
 
 ## Current Verified Result
-
-- ESXi local user `labadmin` was created and assigned the `Read-only` role at the host level. Login and viewing host details succeeded, and a tested change operation was blocked.
-- The current Acceptance Level was observed as `Partner`; Active Directory and Smart card authentication were both shown as disabled. These settings were reviewed but not changed.
 
 - ESXi01 is accessible at `192.168.1.41`.
 - ESXi02 is accessible at `192.168.1.68`; its Host Client showed ESXi 8.0 Update 3 and host state Normal. A 100 GB datastore and `vSwitch0` with `Management Network` and `VM Network` were present.
 - Ping succeeded between ESXi01 (`192.168.1.41`) and ESXi02 (`192.168.1.68`) in both directions with 0% packet loss.
-- `vSwitch0` contains the `Management Network` and `VM Network` port groups.
+- VCSA version `8.0.3.00400`, build `24322831`, is deployed with hostname `vcsa01.lab.local` and IP `192.168.1.200`.
+- Technitium DNS on Windows 11 (`192.168.1.144`) successfully resolved VCSA forward and reverse records from both Windows and VCSA.
+- VCSA SSO domain `vsphere.local` showed status Running in the VAMI screenshot.
+- VCSA memory was reduced from 12 GB to 4 GB after installation. VAMI then reported that the appliance was running low on memory. This remains an open resource constraint.
 - Debian 13 is installed on VM `debian-13.7.0`.
 - A snapshot named `Debian-Before-Changes` was created and tested; a test directory created after the snapshot disappeared after Revert.
 - `debian-13.7.0-clone` was deployed from exported OVF/VMDK files and booted successfully. The clone was assigned IPv4 address `192.168.1.43`, while the original showed `192.168.1.252`.
@@ -95,12 +101,14 @@ Task status is updated only after the practical work and its verification are co
 
 ## Open Follow-up Items
 
-- Correct the VM's configured Guest OS type to Debian 13 and confirm the mismatch warning is gone.
+- Verify DNS over TCP port 53 separately; successful UDP lookups do not prove TCP connectivity.
+- Restart Windows and verify Technitium starts automatically and the DNS records remain available.
+- Monitor VCSA service health and memory pressure with the current 4 GB allocation.
+- Verify access to vSphere Client using `https://vcsa01.lab.local/ui`.
+- Correct the Debian VM's configured Guest OS type to Debian 13 and confirm the mismatch warning is gone.
 - Verify the final saved virtual disk provisioning type.
 - Check whether Debian's partition and filesystem can use the full configured virtual disk capacity.
-- Investigate the storage usage figure only if it becomes relevant to later work.
-
-These items are intentionally listed as open rather than represented as completed.
+- Investigate storage usage only if it becomes relevant to later work.
 
 ## Working Method
 
