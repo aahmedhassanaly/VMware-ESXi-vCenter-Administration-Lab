@@ -41,15 +41,14 @@ A hands-on lab for practicing VMware ESXi administration and vCenter management.
 | 04 | [Manage Snapshots and Clones](Documentation/04-snapshots-and-clones.md) | ✅ Completed |
 | 05 | [Manage ESXi Users and Roles](Documentation/05-esxi-users-and-roles.md) | ✅ Completed |
 | 06 | [Deploy and Configure ESXi02](Documentation/06-esxi02-deployment.md) | ✅ Completed |
-| 07 | Configure Shared Storage for Both Hosts | Planned |
-| 08 | Deploy vCenter Server Appliance | Planned |
-| 09 | Add Hosts to vCenter and Organize Inventory | Planned |
-| 10 | Configure vCenter Permissions and Roles | Planned |
-| 11 | Configure Distributed Switching | Planned |
-| 12 | Configure and Test vMotion | Planned |
-| 13 | Configure vSphere HA | Planned |
-| 14 | Configure vSphere DRS | Planned |
-| 15 | Host Maintenance and Lifecycle Management | Planned |
+| 07 | Deploy vCenter Server Appliance | Planned |
+| 08 | Add Hosts to vCenter and Organize Inventory | Planned |
+| 09 | Configure vCenter Permissions and Roles | Planned |
+| 10 | Configure Distributed Switching | Planned |
+| 11 | Configure and Test vMotion | Planned |
+| 12 | Configure vSphere HA | Planned |
+| 13 | Configure vSphere DRS | Planned |
+| 14 | Host Maintenance and Lifecycle Management | Planned |
 
 Task status is updated only after the practical work and its verification are completed. Planned tasks are not presented as implemented features.
 
