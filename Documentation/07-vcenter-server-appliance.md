@@ -30,6 +30,7 @@ The VAMI management interface is available at:
 The vSphere Client URL to verify is:
 
 `https://vcsa01.lab.local/ui`
+<img width="1495" height="696" alt="image" src="https://github.com/user-attachments/assets/21e1b17e-fe96-4c6f-a805-b71636f396ad" />
 
 ## 2. Configure DNS on the Windows Host
 
