@@ -56,6 +56,7 @@ The management IPs were tested with ping in both directions:
 Both hosts showed one VMkernel interface, `vmk0`, on `Management Network`, using the Default TCP/IP stack. Each host showed `vSwitch0` with one uplink and two port groups: `Management Network` and `VM Network`. Both port groups showed VLAN ID 0.
 
 These checks confirm basic management IP connectivity. They do not prove shared storage, vMotion, or VM-to-VM connectivity between hosts.
+<img width="648" height="337" alt="image" src="https://github.com/user-attachments/assets/d683a25b-0c51-44d8-8a06-a397416bfc58" />
 
 ## 6. Verify Licensing
 
