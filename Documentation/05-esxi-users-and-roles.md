@@ -63,6 +63,8 @@ The following checks were completed:
 - [x] The existing administrative permissions were checked and left unchanged.
 
 These results confirm that the `Read-only` role allowed viewing but blocked the tested change operation.
+<img width="1527" height="647" alt="image" src="https://github.com/user-attachments/assets/534c4d93-06ec-45cd-8f1f-e60095870b00" />
+<img width="1520" height="685" alt="image" src="https://github.com/user-attachments/assets/f57c32fd-7d6c-4a7e-b5ff-444b97adefbf" />
 
 ## 5. Review Other Security Settings
 
