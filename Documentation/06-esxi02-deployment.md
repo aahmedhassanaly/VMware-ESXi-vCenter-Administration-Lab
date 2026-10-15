@@ -31,6 +31,7 @@ The ESXi Host Client opened at:
 `https://192.168.1.68/ui`
 
 The Host Client Summary showed ESXi 8.0 Update 3 and the host name `localhost.home`. The host state was shown as Normal.
+<img width="1534" height="688" alt="image" src="https://github.com/user-attachments/assets/127c8a99-f2b7-48ab-a772-8ffc7be0499f" />
 
 ## 3. Verify Storage
 
