@@ -31,6 +31,7 @@ The following records were created in the `lab.local` zone:
 | PTR | `200` in `1.168.192.in-addr.arpa` | `vcsa01.lab.local` |
 
 The DNS service is named `DnsService`, has startup mode set to Automatic, and was observed in the Running state. The physical Windows 11 host has a DHCP reservation for `192.168.1.144` using its Wi-Fi MAC address.
+<img width="1495" height="696" alt="image" src="https://github.com/user-attachments/assets/93ed089d-0692-45fc-aeb9-76b16e5d1394" />
 
 ## Verification Performed
 
