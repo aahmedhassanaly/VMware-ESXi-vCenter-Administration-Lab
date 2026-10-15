@@ -51,7 +51,6 @@ A hands-on lab for practicing VMware ESXi administration and vCenter management.
 | 14 | Configure vSphere DRS | Planned |
 | 15 | Host Maintenance and Lifecycle Management | Planned |
 
-
 Task status is updated only after the practical work and its verification are completed. Planned tasks are not presented as implemented features.
 
 ## Core Skills Practiced
