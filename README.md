@@ -36,7 +36,7 @@ A hands-on lab for practicing VMware ESXi administration and vCenter management.
 | 02 | [Configure Standard vSwitches and Port Groups](Documentation/02-standard-vswitches-port-groups.md) | ✅ Completed |
 | 03 | [Create and Manage Virtual Machines](Documentation/03-create-manage-vms.md) | ✅ Completed |
 | 04 | [Manage Snapshots and Clones](Documentation/04-snapshots-and-clones.md) | ✅ Completed |
-| 05 | Manage ESXi Users, Roles and Security | Planned |
+| 05 | [Manage ESXi Users and Roles](Documentation/05-esxi-users-and-roles.md) | ✅ Completed |
 | 06 | Deploy and Configure ESXi02 | Planned |
 | 07 | Configure Networking Between ESXi Hosts | Planned |
 | 08 | Configure Shared Storage for Both Hosts | Planned |
@@ -78,6 +78,9 @@ Task status is updated only after the practical work and its verification are co
 - Keep task documentation aligned with the README
 
 ## Current Verified Result
+
+- ESXi local user `labadmin` was created and assigned the `Read-only` role at the host level. Login and viewing host details succeeded, and a tested change operation was blocked.
+- The current Acceptance Level was observed as `Partner`; Active Directory and Smart card authentication were both shown as disabled. These settings were reviewed but not changed.
 
 - ESXi01 is accessible at `192.168.1.41`.
 - `vSwitch0` contains the `Management Network` and `VM Network` port groups.
