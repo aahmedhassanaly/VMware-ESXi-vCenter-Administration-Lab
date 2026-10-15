@@ -44,7 +44,7 @@ A hands-on lab for practicing VMware ESXi administration and vCenter management.
 | 05 | [Manage ESXi Users and Roles](Documentation/05-esxi-users-and-roles.md) | ✅ Completed |
 | 06 | [Deploy and Configure ESXi02](Documentation/06-esxi02-deployment.md) | ✅ Completed |
 | 07 | [Deploy vCenter Server Appliance](Documentation/07-vcenter-server-appliance.md) | ✅ Deployed; DNS verified; memory alert open |
-| 08 | Add Hosts to vCenter and Organize Inventory | Planned |
+| 08 | [Add Hosts to vCenter and Organize Inventory](Documentation/08-add-hosts-vcenter-inventory.md) | ✅ Completed; resource alarms open |
 | 09 | Configure vCenter Permissions and Roles | Planned |
 | 10 | Configure Distributed Switching | Planned |
 | 11 | Configure and Test vMotion | Planned |
@@ -93,6 +93,8 @@ Task status is updated only after practical work and verification. Planned tasks
 - Technitium DNS on Windows 11 (`192.168.1.144`) successfully resolved VCSA forward and reverse records from both Windows and VCSA.
 - VCSA SSO domain `vsphere.local` showed status Running in the VAMI screenshot.
 - VCSA memory was reduced from 12 GB to 4 GB after installation. VAMI then reported that the appliance was running low on memory. This remains an open resource constraint.
+- vCenter inventory contains `Lab-Datacenter`, with ESXi01 (`192.168.1.41`) and ESXi02 (`192.168.1.68`) both shown as `Connected`. Three VMs are shown under ESXi01: `debian-13.7.0`, `debian-13.7.0-clone`, and `VMware vCenter Server`.
+- Open vSphere alarms include `Host memory usage` on ESXi01, `Datastore usage on disk` at Critical severity, and `Memory Exhaustion on vcsa01`. ESXi01's datastore showed 99.75 GB capacity, 88 GB used, and 11.75 GB free. Avoid creating additional VMs or virtual disks until the critical datastore alarm is reviewed.
 - Debian 13 is installed on VM `debian-13.7.0`.
 - A snapshot named `Debian-Before-Changes` was created and tested; a test directory created after the snapshot disappeared after Revert.
 - `debian-13.7.0-clone` was deployed from exported OVF/VMDK files and booted successfully. The clone was assigned IPv4 address `192.168.1.43`, while the original showed `192.168.1.252`.
