@@ -47,6 +47,7 @@ The vSphere Client showed the following inventory:
   - `debian-13.7.0`
   - `debian-13.7.0-clone`
   - `VMware vCenter Server`
+<img width="1531" height="635" alt="image" src="https://github.com/user-attachments/assets/40e365c9-28af-4586-bdab-73e3404d8595" />
 
 The Datacenters view showed **2 Hosts** and **3 VMs** for `Lab-Datacenter`. The host list showed both ESXi hosts as **Connected**.
 
