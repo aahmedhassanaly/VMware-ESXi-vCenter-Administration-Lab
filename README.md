@@ -12,7 +12,7 @@ A hands-on lab for practicing VMware ESXi administration and vCenter management.
 | Virtualization platform | VMware Workstation |
 | Hypervisor | Nested VMware ESXi |
 | ESXi version observed during VM creation | ESXi 8.0 Update 2 |
-| ESXi01 management IP | `192.168.1.41` |
+| ESXi01 management IP | `192.168.1.41` |\n| ESXi02 management IP | `192.168.1.68` |\n| ESXi02 version observed | ESXi 8.0 Update 3 |
 | VMware Workstation network mode for ESXi01 | Bridged |
 | Storage | Datastore created on ESXi01 |
 | Scope | ESXi host administration, virtual machines, networking, storage, vCenter, and selected vSphere features |
@@ -21,7 +21,7 @@ A hands-on lab for practicing VMware ESXi administration and vCenter management.
 
 ## Lab Components
 
-- **ESXi01** — nested ESXi host used for the current tasks.
+- **ESXi01** — first nested ESXi host used for the initial tasks.\n- **ESXi02** — second nested ESXi host; Host Client access, datastore presence, and basic virtual networking were verified.
 - **vSwitch0** — standard virtual switch on ESXi01.
 - **Management Network** — port group used by the ESXi management VMkernel interface.
 - **VM Network** — port group created for virtual machine networking.
@@ -37,7 +37,7 @@ A hands-on lab for practicing VMware ESXi administration and vCenter management.
 | 03 | [Create and Manage Virtual Machines](Documentation/03-create-manage-vms.md) | ✅ Completed |
 | 04 | [Manage Snapshots and Clones](Documentation/04-snapshots-and-clones.md) | ✅ Completed |
 | 05 | [Manage ESXi Users and Roles](Documentation/05-esxi-users-and-roles.md) | ✅ Completed |
-| 06 | Deploy and Configure ESXi02 | Planned |
+| 06 | [Deploy and Configure ESXi02](Documentation/06-esxi02-deployment.md) | ✅ Completed |
 | 07 | Configure Networking Between ESXi Hosts | Planned |
 | 08 | Configure Shared Storage for Both Hosts | Planned |
 | 09 | Deploy vCenter Server Appliance | Planned |
@@ -82,7 +82,7 @@ Task status is updated only after the practical work and its verification are co
 - ESXi local user `labadmin` was created and assigned the `Read-only` role at the host level. Login and viewing host details succeeded, and a tested change operation was blocked.
 - The current Acceptance Level was observed as `Partner`; Active Directory and Smart card authentication were both shown as disabled. These settings were reviewed but not changed.
 
-- ESXi01 is accessible at `192.168.1.41`.
+- ESXi01 is accessible at `192.168.1.41`.\n- ESXi02 is accessible at `192.168.1.68`; its Host Client showed ESXi 8.0 Update 3 and host state Normal. A 100 GB datastore and `vSwitch0` with `VM Network` were present.
 - `vSwitch0` contains the `Management Network` and `VM Network` port groups.
 - Debian 13 is installed on VM `debian-13.7.0`.
 - A snapshot named `Debian-Before-Changes` was created and tested; a test directory created after the snapshot disappeared after Revert.
