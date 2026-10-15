@@ -45,7 +45,19 @@ The **Networking → Virtual switches** page showed `vSwitch0` and the `VM Netwo
 
 No network settings were changed during this check.
 
-## 5. Verify Licensing
+## 5. Verify Connectivity Between ESXi Hosts
+
+The management IPs were tested with ping in both directions:
+
+- ESXi02 (`192.168.1.68`) to ESXi01 (`192.168.1.41`): 3 packets received, 0% packet loss.
+- ESXi01 (`192.168.1.41`) to ESXi02 (`192.168.1.68`): 3 packets received, 0% packet loss.
+- The user also confirmed that connectivity from the Windows host was working.
+
+Both hosts showed one VMkernel interface, `vmk0`, on `Management Network`, using the Default TCP/IP stack. Each host showed `vSwitch0` with one uplink and two port groups: `Management Network` and `VM Network`. Both port groups showed VLAN ID 0.
+
+These checks confirm basic management IP connectivity. They do not prove shared storage, vMotion, or VM-to-VM connectivity between hosts.
+
+## 6. Verify Licensing
 
 The user checked the Licensing page and reported that its status was the same as ESXi01. No license settings were changed.
 
@@ -56,13 +68,13 @@ The user checked the Licensing page and reported that its status was the same as
 - [x] Management IP `192.168.1.68` was reachable through the Host Client.
 - [x] Host state showed Normal.
 - [x] A 100 GB datastore was present.
-- [x] `vSwitch0` and `VM Network` were present.
+- [x] `vSwitch0`, `Management Network`, and `VM Network` were present.\n- [x] Ping succeeded between the two management IPs in both directions with 0% packet loss.
 - [x] Configured resources were 2 vCPUs and 4 GB RAM.
 
 ## Notes
 
 - The displayed host name is still `localhost.home`; it was not renamed in this task.
-- This task verifies that ESXi02 is deployed and its current management, storage, and basic virtual networking are visible. It does not verify host-to-host connectivity, shared storage, vMotion, or vSphere HA.
+- This task verifies that ESXi02 is deployed and its current management, storage, and basic virtual networking are visible. Shared storage, vMotion, and vSphere HA have not been configured or verified.
 
 ## Task Status
 
@@ -70,4 +82,4 @@ The user checked the Licensing page and reported that its status was the same as
 
 ## Next Task
 
-**Task 07 — Configure Networking Between ESXi Hosts**
+**Task 07 — Configure Shared Storage for Both Hosts**
