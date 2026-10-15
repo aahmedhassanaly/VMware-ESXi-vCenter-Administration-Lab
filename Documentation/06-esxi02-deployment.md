@@ -83,4 +83,4 @@ The user checked the Licensing page and reported that its status was the same as
 
 ## Next Task
 
-**Task 07 — Configure Shared Storage for Both Hosts**
+**Task 07 — Deploy vCenter Server Appliance**
