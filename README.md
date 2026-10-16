@@ -45,7 +45,7 @@ A hands-on lab for practicing VMware ESXi administration and vCenter management.
 | 06 | [Deploy and Configure ESXi02](Documentation/06-esxi02-deployment.md) | ✅ Completed |
 | 07 | [Deploy vCenter Server Appliance](Documentation/07-vcenter-server-appliance.md) | ✅ Deployed; DNS verified; memory alert open |
 | 08 | [Add Hosts to vCenter and Organize Inventory](Documentation/08-add-hosts-vcenter-inventory.md) | ✅ Completed; resource alarms open |
-| 09 | [Configure vCenter Permissions and Roles](Documentation/09-vcenter-permissions-roles.md) | ✅ Completed — Read-only tested on ESXi01 |
+| 09 | [Configure vCenter Permissions and Roles](Documentation/09-vcenter-permissions-roles.md) | ✅ Completed |
 | 10 | Configure Distributed Switching | Planned |
 | 11 | Configure and Test vMotion | Planned |
 | 12 | Configure vSphere HA | Planned |
