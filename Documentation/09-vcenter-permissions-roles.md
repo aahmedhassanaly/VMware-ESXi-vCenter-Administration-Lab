@@ -22,6 +22,7 @@ Create a dedicated test user, assign the built-in Read-only role to a limited in
 2. Selected the `vsphere.local` domain.
 3. Created the user `lab.operator` with a dedicated lab password.
 4. Kept the existing system and service accounts unchanged.
+<img width="1511" height="632" alt="image" src="https://github.com/user-attachments/assets/db3f09e8-6c0a-4bb5-8eab-716d6b39997f" />
 
 ### 2. Assign the Read-only role to ESXi01
 
@@ -41,6 +42,7 @@ The resulting permission entry showed:
 | Defined In | This object and its children |
 
 This assignment is scoped to ESXi01 and its child objects. It is not a Global Permission.
+<img width="1536" height="556" alt="image" src="https://github.com/user-attachments/assets/c2ca0cc9-85d9-4adc-9adc-839208e3a4e1" />
 
 ## Verification
 
@@ -53,6 +55,7 @@ The following checks were completed using the test account:
 - [x] The user reported that configuration changes were not available with the Read-only role.
 
 The Power On action was not executed. This task record does not claim that a power operation was tested.
+<img width="1509" height="653" alt="image" src="https://github.com/user-attachments/assets/09008963-affb-4f68-8e41-1b49e0233cee" />
 
 ## How to Grant Read-only Access to Both Hosts at Once
 
