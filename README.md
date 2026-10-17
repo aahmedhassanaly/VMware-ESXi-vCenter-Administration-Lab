@@ -46,7 +46,7 @@ A hands-on lab for practicing VMware ESXi administration and vCenter management.
 | 07 | [Deploy vCenter Server Appliance](Documentation/07-vcenter-server-appliance.md) | ✅ Completed |
 | 08 | [Add Hosts to vCenter and Organize Inventory](Documentation/08-add-hosts-vcenter-inventory.md) | ✅ Completed |
 | 09 | [Configure vCenter Permissions and Roles](Documentation/09-vcenter-permissions-roles.md) | ✅ Completed |
-| 10 | Configure Distributed Switching | Planned |
+| 10 | [Configure Distributed Switching](Documentation/10-configure-distributed-switching.md) | ✅ Completed |
 | 11 | Configure and Test vMotion | Planned |
 | 12 | Configure vSphere HA | Planned |
 | 13 | Configure vSphere DRS | Planned |
@@ -66,6 +66,7 @@ Task status is updated only after practical work and verification. Planned tasks
 
 ### Networking and DNS
 - Standard vSwitches and port groups
+- Distributed vSwitch and distributed port group configuration
 - ESXi management VMkernel networking
 - Basic guest network verification
 - DNS A and PTR records for VCSA
@@ -100,6 +101,9 @@ Task status is updated only after practical work and verification. Planned tasks
 - `debian-13.7.0-clone` was deployed from exported OVF/VMDK files and booted successfully. The clone was assigned IPv4 address `192.168.1.43`, while the original showed `192.168.1.252`.
 - The VM has 1 vCPU, 2 GB configured memory, a 15 GB configured virtual disk, and a network adapter connected to `VM Network`.
 - The user confirmed the guest boots, opens a browser, and has Internet access.
+- `DSwitch-Lab` was created with version `8.0.0`, Network I/O Control enabled, and one uplink.
+- ESXi01 and ESXi02 were added to `DSwitch-Lab`; `vmnic1` on both hosts was assigned to `Uplink 1` and displayed `Link Up`. The existing `vmnic0` and management `vmk0` were left on the standard switch.
+- Debian clone `debian-13.7.0-clone` was connected to distributed port group `DPortGroup`. Ping to both ESXi management IPs succeeded, and the user confirmed that ping to gateway `192.168.1.1` subsequently succeeded.
 
 ## Open Follow-up Items
 
