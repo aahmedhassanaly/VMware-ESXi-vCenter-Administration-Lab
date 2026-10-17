@@ -37,6 +37,7 @@ The vCenter Distributed Switch port view showed both uplinks with `Link Up`:
 
 - `192.168.1.41 - vmnic1`
 - `192.168.1.68 - vmnic1`
+<img width="1528" height="520" alt="image" src="https://github.com/user-attachments/assets/26a89d3e-f58a-4f22-b688-81cee490a228" />
 
 ### 3. Configure and Use a Distributed Port Group
 
@@ -47,6 +48,7 @@ The guest reported:
 - Interface: `ens33`
 - IPv4 address: `192.168.1.43/24`
 - Default gateway: `192.168.1.1`
+<img width="1536" height="528" alt="image" src="https://github.com/user-attachments/assets/09e18256-9a54-44fe-b0a5-99d8c6dfb3eb" />
 
 ### 4. Verify Connectivity
 
@@ -56,6 +58,7 @@ The user observed successful ping responses from the Debian clone to both ESXi m
 - `192.168.1.68`
 
 The initial ping to `192.168.1.1` failed, then the user confirmed that the gateway ping worked after subsequent troubleshooting. The final successful gateway output was not captured in the conversation, so the result is recorded as user-confirmed rather than screenshot-verified.
+<img width="922" height="484" alt="image" src="https://github.com/user-attachments/assets/ac28a1a2-a4bd-46a5-aed5-8f2c2646b201" />
 
 ## Verification
 
