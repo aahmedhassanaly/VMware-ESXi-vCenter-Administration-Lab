@@ -47,7 +47,7 @@ A hands-on lab for practicing VMware ESXi administration and vCenter management.
 | 08 | [Add Hosts to vCenter and Organize Inventory](Documentation/08-add-hosts-vcenter-inventory.md) | ✅ Completed |
 | 09 | [Configure vCenter Permissions and Roles](Documentation/09-vcenter-permissions-roles.md) | ✅ Completed |
 | 10 | [Configure Distributed Switching](Documentation/10-configure-distributed-switching.md) | ✅ Completed |
-| 11 | Configure and Test vMotion | Planned |
+| 11 | [Configure and Test vMotion](Documentation/11-configure-and-test-vmotion.md) | ✅ Completed |
 | 12 | Configure vSphere HA | Planned |
 | 13 | Configure vSphere DRS | Planned |
 | 14 | Host Maintenance and Lifecycle Management | Planned |
