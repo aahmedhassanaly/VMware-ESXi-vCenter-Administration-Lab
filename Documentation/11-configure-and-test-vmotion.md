@@ -27,6 +27,8 @@ A VMkernel adapter named `vmk1` was configured on each host using `DSwitch-Lab` 
 | ESXi02 | `192.168.1.68` | `vmk1` | `192.168.1.58` |
 
 The existing management adapter `vmk0` remained on `vSwitch0`. The management network was not moved.
+<img width="1532" height="518" alt="image" src="https://github.com/user-attachments/assets/4248a7c9-a7c8-481b-9b4b-804824e0c7b3" />
+<img width="1533" height="491" alt="image" src="https://github.com/user-attachments/assets/549c7f4f-cc0b-45bf-a2ab-28003d4693c0" />
 
 ### 2. Verify vMotion Network Connectivity
 
@@ -36,6 +38,7 @@ The following tests were run successfully:
 - From ESXi02: `vmkping -I vmk1 192.168.1.161`
 
 The user confirmed that both tests succeeded. This verifies IP connectivity between the two vMotion VMkernel addresses; it does not independently verify every vMotion prerequisite.
+<img width="1536" height="720" alt="image" src="https://github.com/user-attachments/assets/1c4abd13-a245-4d36-a335-37d4ee93d901" />
 
 ### 3. Migrate the Running VM
 
@@ -51,6 +54,8 @@ The final vCenter Summary showed:
 - Network: `DPortGroup` (connected)
 - Datastore: `data-store`
 - Virtual disk: 15 GB, Thin Provision
+<img width="1536" height="699" alt="image" src="https://github.com/user-attachments/assets/497c2bdd-571f-4ede-aa47-a159f462bad6" />
+<img width="1536" height="521" alt="image" src="https://github.com/user-attachments/assets/85a7c785-2ee4-4cbf-853e-3de50f6c4fef" />
 
 ## Verification
 
