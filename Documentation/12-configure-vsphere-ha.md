@@ -28,6 +28,7 @@ The HA configuration included:
 - Reserved failover CPU capacity: `50%`
 - Reserved failover Memory capacity: changed from `67%` to `50%`
 - Performance degradation VMs tolerate: `100%`
+<img width="1530" height="545" alt="image" src="https://github.com/user-attachments/assets/bee2ed18-b80a-4bca-a588-ed75ca099f33" />
 
 ### 2. Verify the HA Summary
 
@@ -52,6 +53,7 @@ After the memory failover capacity was changed to 50%, the vSphere HA summary pr
 | Failover resource auto-computation | Off |
 
 These are the values reported in the summary at that time.
+<img width="1529" height="627" alt="image" src="https://github.com/user-attachments/assets/2b6c7ca6-6be0-45b9-8aec-fb0d3cb6b8a5" />
 
 ### 3. Review the Reported Alarms
 
@@ -86,11 +88,6 @@ The user confirmed there is no shared datastore in the lab. The existing VMFS da
 - ESXi01 has reported high memory usage. The VCSA previously reported low memory after its allocation was reduced to 4 GB.
 - Do not treat this task as a successful HA failover test until VM restart on the alternate host is verified.
 
-## Official Broadcom References
-
-- [KB 392502 — vSphere HA heartbeat datastore count is 0, less than required 2](https://knowledge.broadcom.com/external/article/392502/alert-the-number-of-vsphere-ha-heartbeat.html)
-- [KB 318871 — HA heartbeat datastore count below required](https://knowledge.broadcom.com/external/article/318871/ha-error-the-number-of-heartbeat-datasto.html)
-- [KB 424373 — Insufficient configured resources for HA failover level](https://knowledge.broadcom.com/external/article/424373/error-insufficient-configured-resources.html)
 
 ## Task Status
 
