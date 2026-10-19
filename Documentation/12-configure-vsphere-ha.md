@@ -1,80 +1,97 @@
-# Task 12 — Configure and Validate vSphere HA
+# Task 12 — Configure and Test vSphere HA
 
 ## Objective
-Enable vSphere HA, verify agent status, review Admission Control, and record what is and is not proven by the lab.
+
+Enable vSphere HA on the cluster, review Admission Control, and verify the current HA status using the vSphere Client.
 
 ## Environment
+
 - vCenter: `vcsa01.lab.local` (`192.168.1.200`)
 - Datacenter: `Lab-Datacenter`
 - Cluster: `Cluster-HA-Image`
-- ESXi01: `192.168.1.41`
-- ESXi02: `192.168.1.68`
-- ESXi02 version observed: ESXi 8.0 Update 3, build 24677879
-- No shared datastore has been established. The hosts' existing VMFS datastores were observed with different names and UUIDs.
-- Resource warnings have included high ESXi01 memory usage and low-memory warnings on VCSA.
+- ESXi01 management IP: `192.168.1.41`
+- ESXi02 management IP: `192.168.1.68`
 
-## Configuration and Observations
+## Implementation
 
-### HA setup
-- HA enabled on `Cluster-HA-Image`; DRS and vSAN remain disabled.
-- Host Monitoring enabled.
-- Host Failure Response set to `Restart VMs`.
-- Initial HA component configuration attempts failed with messages including `Installing HA components failed on the cluster` and `Applying HA VIBs on the cluster encountered a failure`.
-- DNS resolution and HTTP access to the vCenter micro-depot XML on port 9084 were later verified from both hosts. This confirms access to that URL only; it does not prove the initial component installation issue was resolved.
+### 1. Configure the HA Cluster
 
-### HA summary provided after the latest Admission Control change
-- Primary host: `192.168.1.41`
-- Hosts connected to primary: 1; hosts not connected: 0
-- HA agent unreachable: 0; HA agent configuration error: 0
-- Hosts failed: 0; network isolated: 0; network partitioned: 0
-- Protected VMs: 2; unprotected VMs: 1
+Created and used the cluster `Cluster-HA-Image` with image management enabled. vSphere HA was enabled. DRS and vSAN remained disabled.
 
-These values show the summary state at the time reported. They do not prove a successful VM failover.
+The HA configuration included:
 
-### Admission Control
+- Host Monitoring: Enabled
+- Host Failure Response: `Restart VMs`
 - Host failures cluster tolerates: `1`
-- Policy: `Cluster resource Percentage`
-- Override calculated failover capacity: enabled
-- Reserved failover CPU: `50%`
-- Reserved failover Memory: changed from `67%` to `50%`
+- Define host failover capacity by: `Cluster resource Percentage`
+- Override calculated failover capacity: Enabled
+- Reserved failover CPU capacity: `50%`
+- Reserved failover Memory capacity: changed from `67%` to `50%`
 - Performance degradation VMs tolerate: `100%`
 
-After the change, the summary reported total cluster memory `13.86 GB`, failover memory capacity `50% (6.93 GB)`, total cluster CPU `44.93 GHz`, failover CPU capacity `50% (22.46 GHz)`, and failover resource auto-computation `Off`.
+### 2. Verify the HA Summary
 
-The user later reported that the `debian-13.7.0-clone vSphere HA virtual machine failover failed` alarm disappeared. No evidence was provided that the VM restarted on the alternate host as part of a successful host-failure test.
+After the memory failover capacity was changed to 50%, the vSphere HA summary provided by the user showed:
 
-### Outstanding alarms and limitations
-- Heartbeat datastore count: `0`, less than the required `2`.
-- `Insufficient resources to satisfy vSphere HA failover level` was observed earlier.
-- Both hosts reported no management network redundancy.
-- ESXi01 reported high memory usage.
-- A failover status previously reported one VM waiting for a retry.
+| Item | Observed value |
+|---|---:|
+| Primary host | `192.168.1.41` |
+| Hosts connected to primary | 1 |
+| Hosts not connected to primary | 0 |
+| HA agent not reachable | 0 |
+| HA agent configuration error | 0 |
+| Hosts failed | 0 |
+| Network isolated | 0 |
+| Network partitioned | 0 |
+| Protected VMs | 2 |
+| Unprotected VMs | 1 |
+| Cluster total memory | 13.86 GB |
+| Failover memory capacity | 50% (6.93 GB) |
+| Cluster total CPU | 44.93 GHz |
+| Failover CPU capacity | 50% (22.46 GHz) |
+| Failover resource auto-computation | Off |
 
-Because no shared storage has been configured and the local VMFS datastores have different UUIDs, there is no evidence that both hosts can access the same VM files. A host-failure failover test is therefore not verified.
+These are the values reported in the summary at that time.
 
-## Verification Checklist
-- [x] HA enabled on the cluster.
-- [x] HA summary reported both hosts connected to the primary at the time of observation.
-- [x] HA summary reported zero unreachable agents, zero agent configuration errors, and zero failed hosts at the time of observation.
-- [x] CPU and memory failover capacity set to 50%.
-- [x] User reported that the VM failover-failed alarm later disappeared.
-- [ ] Check current heartbeat datastore alarm.
-- [ ] Investigate the precise cause of the initial HA component installation failure using logs.
-- [ ] Review current resource and memory alarms.
-- [ ] Verify VM restart on the surviving host in a controlled host-failure test. This has not been demonstrated.
+### 3. Review the Reported Alarms
 
-## Safety Notes
-- Do not power off either host or disconnect management networking to simulate failure while vCenter depends on local storage on ESXi01 and VM files have not been shown to be accessible from ESXi02.
-- A VM marked HA-protected does not by itself prove it can restart on the other host.
-- The lack of shared heartbeat datastores explains the heartbeat warning, but does not independently explain the original HA VIB installation failure.
-- Do not disable Admission Control merely to hide a resource warning.
-- No VMs or virtual disks were added for this task.
+The user reported these HA-related alarms during the task:
+
+- `Insufficient resources to satisfy vSphere HA failover level`
+- `The number of vSphere HA heartbeat datastores ... is 0, which is less than required: 2`
+- `debian-13.7.0-clone vSphere HA virtual machine failover failed`
+- A failover operation status reporting one VM waiting for a retry
+- No management network redundancy on both hosts
+
+The user later reported that the VM failover-failed alarm disappeared. No successful restart of the VM on the alternate host was confirmed.
+
+The user confirmed there is no shared datastore in the lab. The existing VMFS datastores on the two hosts were observed with different names and UUIDs.
+
+## Verification
+
+- [x] vSphere HA enabled on `Cluster-HA-Image`.
+- [x] Host Monitoring enabled and Host Failure Response set to `Restart VMs`.
+- [x] The HA summary reported both hosts connected to the primary at the time of observation.
+- [x] The HA summary reported zero unreachable HA agents, zero HA agent configuration errors, and zero failed hosts at the time of observation.
+- [x] Reserved failover CPU capacity set to `50%`.
+- [x] Reserved failover Memory capacity changed to `50%`.
+- [ ] Verify that a VM successfully restarts on the surviving host after a host failure.
+- [ ] Recheck the current heartbeat datastore and resource alarms.
+
+## Notes and Follow-up
+
+- The HA summary and the disappearance of an alarm do not prove that host-failure recovery succeeded.
+- No shared datastore is available in the current lab, and access to VM files from both hosts has not been established.
+- The initial HA component installation attempts reported `Installing HA components failed on the cluster` and `Applying HA VIBs on the cluster encountered a failure`. DNS resolution and access to the vCenter micro-depot XML over HTTP port 9084 were later verified from both hosts, but the exact cause of the initial installation failure was not confirmed.
+- ESXi01 has reported high memory usage. The VCSA previously reported low memory after its allocation was reduced to 4 GB.
+- Do not treat this task as a successful HA failover test until VM restart on the alternate host is verified.
 
 ## Official Broadcom References
-- [KB 392502 — HA heartbeat datastore count is 0, less than required 2](https://knowledge.broadcom.com/external/article/392502/alert-the-number-of-vsphere-ha-heartbeat.html)
+
+- [KB 392502 — vSphere HA heartbeat datastore count is 0, less than required 2](https://knowledge.broadcom.com/external/article/392502/alert-the-number-of-vsphere-ha-heartbeat.html)
 - [KB 318871 — HA heartbeat datastore count below required](https://knowledge.broadcom.com/external/article/318871/ha-error-the-number-of-heartbeat-datasto.html)
-- [KB 396016 — Insufficient HA failover resources](https://knowledge.broadcom.com/external/article/396016)
 - [KB 424373 — Insufficient configured resources for HA failover level](https://knowledge.broadcom.com/external/article/424373/error-insufficient-configured-resources.html)
 
 ## Task Status
-**In Progress** — HA is enabled and the cluster summary reported connected agents, but successful VM failover has not been verified. Shared heartbeat storage is absent and resource/heartbeat alarms require follow-up.
+
+**In Progress** — vSphere HA is enabled and the HA summary was checked. A successful VM failover has not been verified.
