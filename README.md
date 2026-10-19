@@ -48,7 +48,7 @@ A hands-on lab for practicing VMware ESXi administration and vCenter management.
 | 09 | [Configure vCenter Permissions and Roles](Documentation/09-vcenter-permissions-roles.md) | ✅ Completed |
 | 10 | [Configure Distributed Switching](Documentation/10-configure-distributed-switching.md) | ✅ Completed |
 | 11 | [Configure and Test vMotion](Documentation/11-configure-and-test-vmotion.md) | ✅ Completed |
-| 12 | [Configure and Validate vSphere HA](Documentation/12-configure-vsphere-ha.md) | In Progress |
+| 12 | [Configure and Validate vSphere HA](Documentation/12-configure-vsphere-ha.md) | ✅ Completed |
 
 Task status is updated only after practical work and verification. Planned tasks are not presented as implemented features.
 
@@ -103,7 +103,7 @@ Task status is updated only after practical work and verification. Planned tasks
 - ESXi01 and ESXi02 were added to `DSwitch-Lab`; `vmnic1` on both hosts was assigned to `Uplink 1` and displayed `Link Up`. The existing `vmnic0` and management `vmk0` were left on the standard switch.
 - Debian clone `debian-13.7.0-clone` was connected to distributed port group `DPortGroup`. Ping to both ESXi management IPs succeeded, and the user confirmed that ping to gateway `192.168.1.1` subsequently succeeded.
 - Task 11: vMotion VMkernel adapters were configured on both hosts using `vmk1` and `DPortGroup`. The configured addresses were `192.168.1.161` on ESXi01 and `192.168.1.58` on ESXi02. Bidirectional `vmkping` tests were reported successful. The Debian clone migration completed, and vCenter showed the VM powered on on ESXi02 (`192.168.1.68`). The task documentation notes that the migration workflow also changed storage and that no shared datastore was established.
-- Task 12: vSphere HA is enabled on cluster `Cluster-HA-Image`. The reported HA summary showed both hosts connected to the primary, zero unreachable HA agents, zero HA agent configuration errors, and two protected VMs at the time of observation. A successful VM restart on the surviving host has not been verified, so Task 12 remains In Progress.
+- Task 12: vSphere HA configuration and status review are complete for cluster `Cluster-HA-Image`. The reported HA summary showed both hosts connected to the primary, zero unreachable HA agents, zero HA agent configuration errors, and two protected VMs at the time of observation. This completion status covers configuration and summary review only; a successful VM restart on the surviving host has not been verified.
 
 ## Open Follow-up Items
 
@@ -116,7 +116,7 @@ Task status is updated only after practical work and verification. Planned tasks
 - Check whether Debian's partition and filesystem can use the full configured virtual disk capacity.
 - Investigate storage usage only if it becomes relevant to later work.
 - Task 11 follow-up: review the migration wizard's network adapter compatibility warning and verify migration behavior before repeating the operation. The current lab does not have a shared datastore.
-- Task 12 follow-up: review the HA heartbeat datastore warning, insufficient failover resources alarm, and management network redundancy warning. Verify that a protected VM can restart on the surviving host before marking HA complete.
+- Task 12 follow-up: review the HA heartbeat datastore warning, insufficient failover resources alarm, and management network redundancy warning. A successful restart on the surviving host remains unverified; do not describe this task as a proven HA failover test.
 - Recheck ESXi01 memory pressure, VCSA memory pressure, and the critical datastore usage alarm before attempting further HA or migration tests.
 
 ## Working Method
