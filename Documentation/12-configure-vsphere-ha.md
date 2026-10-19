@@ -77,8 +77,8 @@ The user confirmed there is no shared datastore in the lab. The existing VMFS da
 - [x] The HA summary reported zero unreachable HA agents, zero HA agent configuration errors, and zero failed hosts at the time of observation.
 - [x] Reserved failover CPU capacity set to `50%`.
 - [x] Reserved failover Memory capacity changed to `50%`.
-- [ ] Verify that a VM successfully restarts on the surviving host after a host failure.
-- [ ] Recheck the current heartbeat datastore and resource alarms.
+- [ ] Verify that a VM successfully restarts on the surviving host after a host failure (not tested).
+- [ ] Recheck the current heartbeat datastore and resource alarms (still open).
 
 ## Notes and Follow-up
 
@@ -86,9 +86,9 @@ The user confirmed there is no shared datastore in the lab. The existing VMFS da
 - No shared datastore is available in the current lab, and access to VM files from both hosts has not been established.
 - The initial HA component installation attempts reported `Installing HA components failed on the cluster` and `Applying HA VIBs on the cluster encountered a failure`. DNS resolution and access to the vCenter micro-depot XML over HTTP port 9084 were later verified from both hosts, but the exact cause of the initial installation failure was not confirmed.
 - ESXi01 has reported high memory usage. The VCSA previously reported low memory after its allocation was reduced to 4 GB.
-- Do not treat this task as a successful HA failover test until VM restart on the alternate host is verified.
+- This task is marked complete for HA configuration and status review. It does not represent a successful host-failure recovery test; VM restart on the alternate host remains unverified.
 
 
 ## Task Status
 
-**In Progress** — vSphere HA is enabled and the HA summary was checked. A successful VM failover has not been verified.
+**Completed** — HA configuration and status review are complete. A successful VM failover has not been verified; heartbeat datastore, resource capacity, and management network redundancy warnings remain follow-up items.
