@@ -49,8 +49,6 @@ A hands-on lab for practicing VMware ESXi administration and vCenter management.
 | 10 | [Configure Distributed Switching](Documentation/10-configure-distributed-switching.md) | ✅ Completed |
 | 11 | [Configure and Test vMotion](Documentation/11-configure-and-test-vmotion.md) | ✅ Completed |
 | 12 | [Configure and Validate vSphere HA](Documentation/12-configure-vsphere-ha.md) | In Progress |
-| 13 | Configure vSphere DRS | Planned |
-| 14 | Host Maintenance and Lifecycle Management | Planned |
 
 Task status is updated only after practical work and verification. Planned tasks are not presented as implemented features.
 
