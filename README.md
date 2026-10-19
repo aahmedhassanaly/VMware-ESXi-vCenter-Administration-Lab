@@ -48,7 +48,7 @@ A hands-on lab for practicing VMware ESXi administration and vCenter management.
 | 09 | [Configure vCenter Permissions and Roles](Documentation/09-vcenter-permissions-roles.md) | ✅ Completed |
 | 10 | [Configure Distributed Switching](Documentation/10-configure-distributed-switching.md) | ✅ Completed |
 | 11 | [Configure and Test vMotion](Documentation/11-configure-and-test-vmotion.md) | ✅ Completed |
-| 12 | Configure vSphere HA | Planned |
+| 12 | [Configure and Validate vSphere HA](Documentation/12-configure-vsphere-ha.md) | In Progress |
 | 13 | Configure vSphere DRS | Planned |
 | 14 | Host Maintenance and Lifecycle Management | Planned |
 
@@ -115,6 +115,7 @@ Task status is updated only after practical work and verification. Planned tasks
 - Verify the final saved virtual disk provisioning type.
 - Check whether Debian's partition and filesystem can use the full configured virtual disk capacity.
 - Investigate storage usage only if it becomes relevant to later work.
+- Task 12: vSphere HA is enabled, but the VM failover test is not verified. No shared datastore is configured; review heartbeat datastore and resource alarms before any host-failure simulation.
 
 ## Working Method
 
