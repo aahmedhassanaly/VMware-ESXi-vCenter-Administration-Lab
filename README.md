@@ -115,7 +115,6 @@ Task status is updated only after practical work and verification. Planned tasks
 - Verify the final saved virtual disk provisioning type.
 - Check whether Debian's partition and filesystem can use the full configured virtual disk capacity.
 - Investigate storage usage only if it becomes relevant to later work.
-- Task 12: vSphere HA is enabled, but the VM failover test is not verified. No shared datastore is configured; review heartbeat datastore and resource alarms before any host-failure simulation.
 
 ## Working Method
 
